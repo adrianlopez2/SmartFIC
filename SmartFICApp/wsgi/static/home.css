@@ -1,0 +1,22 @@
+body {
+  background-color: #908E8E;
+}
+
+.circle {
+  position: relative;
+  background-color: #6D6C6C;
+  margin: 20px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}

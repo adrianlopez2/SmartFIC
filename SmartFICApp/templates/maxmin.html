@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block title %}{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src= "/static/flipclock/flipclock.min.js"></script>
+	<script src="https://code.highcharts.com/highcharts-more.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+	{% load chartit %}
+
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />
+	<script type="text/javascript">
+		var clock;	
+		$(document).ready(function() {
+			clock = $('.clock').FlipClock({
+				clockFace: 'TwentyFourHourClock'
+			});
+		});
+	</script>
+</head>
+<body>
+
+
+
+</div>
+<div id="container">{{  weatherchart|load_charts:"container" }}</div>
+
+
+</body>
+</html>
+{% endblock %}

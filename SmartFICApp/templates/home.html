@@ -1,0 +1,325 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="http://code.highcharts.com/highcharts.js"></script>
+      <script src= "/static/flipclock/flipclock.min.js"></script>
+      <script src="https://code.highcharts.com/highcharts-more.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
+      {% load chartit %}
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />
+      <script type="text/javascript">
+         var clock;	
+         $(document).ready(function() {
+         	clock = $('.clock').FlipClock({
+         		clockFace: 'TwentyFourHourClock'
+         	});
+         });
+      </script>
+      <script>
+         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         $(function () {
+         
+             Highcharts.chart('containerHum', {
+         
+                 chart: {
+                     type: 'gauge',
+                     plotBackgroundColor: null,
+                     plotBackgroundImage: null,
+                     plotBorderWidth: 0,
+                     plotShadow: false,
+         	    backgroundColor: 'rgba(0,0,0,0)'
+                 },
+         
+         	title: {
+                     text: ''
+                 },
+                 exporting: {
+                     enabled: false
+                 },
+         
+         	plotOptions:{
+         		series: {
+         		        dataLabels: {
+         		            enabled: true,
+         		            style: {
+         		               
+         		                fontSize: '25px'
+         		            },
+         		        borderWidth: 0,
+         		            format: '{y} %'
+         		        }
+         		    }
+         	},
+                 
+                 credits: {
+                     enabled: false
+                 },
+                 pane: {
+                     startAngle: -150,
+                     endAngle: 150,
+                     background: [{
+                         backgroundColor: {
+                             linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                             stops: [
+                                 [0, '#FFF'],
+                                 [1, '#333']
+                             ]
+                         },
+                         borderWidth: 0,
+                         outerRadius: '109%'
+                     }, {
+                         backgroundColor: {
+                             linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                             stops: [
+                                 [0, '#333'],
+                                 [1, '#FFF']
+                             ]
+                         },
+                         borderWidth: 1,
+                         outerRadius: '107%'
+                     }, {
+                         // default background
+                     }, {
+                         backgroundColor: '#DDD',
+                         borderWidth: 0,
+                         outerRadius: '105%',
+                         innerRadius: '103%'
+                     }]
+                 },
+         
+                 // the value axis
+                 yAxis: {
+                     min: 0,
+                     max: 100,
+         
+                     minorTickInterval: 'auto',
+                     minorTickWidth: 1,
+                     minorTickLength: 10,
+                     minorTickPosition: 'inside',
+                     minorTickColor: '#666',
+         
+                     tickPixelInterval: 30,
+                     tickWidth: 2,
+                     tickPosition: 'inside',
+                     tickLength: 10,
+                     tickColor: '#666',
+                     labels: {
+                         step: 2,
+                         rotation: 'auto'
+                     },
+                     title: {
+                         text: 'Hum. Actual (%)'
+                     },
+                     plotBands: [{
+                         from: 0,
+                         to: 40,
+                         color: '#00BFFF' //blue1
+                     }, {
+                         from: 40,
+                         to: 60,
+                         color: '#0080FF' // blue2
+                     }, {
+                         from: 60,
+                         to: 100,
+                         color: '#0040FF' // blue3
+                     }]
+                 },
+         
+                 series: [{
+                     name: 'Humedad',
+                     data: [{{humedad}}],
+                     tooltip: {
+                         valueSuffix: '%'
+                     }
+                 }]
+         
+             }
+         );
+         });
+         
+         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      </script>
+      <script>
+         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         $(function () {
+         
+             Highcharts.chart('containerTemp', {
+         
+                 chart: {
+                     type: 'gauge',
+                     plotBackgroundColor: null,
+                     plotBackgroundImage: null,
+                     plotBorderWidth: 0,
+                     plotShadow: false,
+         	    backgroundColor: 'rgba(0,0,0,0)'
+                 },
+         
+         	title: {
+                     text: ''
+                 },
+                 exporting: {
+                     enabled: false
+                 },
+         
+         	plotOptions:{
+         		series: {
+         		        dataLabels: {
+         		            enabled: true,
+         		            style: {
+         		                fontWeight: 'bold',
+         		                fontSize: '25px'
+         		            },
+         		        borderWidth: 0,
+         		            format: '{y} ºC'
+         		        }
+         		    }
+         	},
+                 
+                 credits: {
+                     enabled: false
+                 },
+                 pane: {
+                     startAngle: -150,
+                     endAngle: 150,
+                     background: [{
+                         backgroundColor: {
+                             linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                             stops: [
+                                 [0, '#FFF'],
+                                 [1, '#333']
+                             ]
+                         },
+                         borderWidth: 0,
+                         outerRadius: '109%'
+                     }, {
+                         backgroundColor: {
+                             linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                             stops: [
+                                 [0, '#333'],
+                                 [1, '#FFF']
+                             ]
+                         },
+                         borderWidth: 1,
+                         outerRadius: '107%'
+                     }, {
+                         // default background
+                     }, {
+                         backgroundColor: '#DDD',
+                         borderWidth: 0,
+                         outerRadius: '105%',
+                         innerRadius: '103%'
+                     }]
+                 },
+         
+                 // the value axis
+                 yAxis: {
+                     min: -10,
+                     max: 50,
+         
+                     minorTickInterval: 'auto',
+                     minorTickWidth: 1,
+                     minorTickLength: 10,
+                     minorTickPosition: 'inside',
+                     minorTickColor: '#666',
+         
+                     tickPixelInterval: 30,
+                     tickWidth: 2,
+                     tickPosition: 'inside',
+                     tickLength: 10,
+                     tickColor: '#666',
+                     labels: {
+                         step: 2,
+                         rotation: 'auto'
+                     },
+                     title: {
+                         text: 'Temp. Actual (ºC)'
+                     },
+                     plotBands: [{
+                         from: -10,
+                         to: -5,
+                         color: '#2E2EFE' //AZUL OSCURO
+                     },{
+                         from: -5,
+                         to: 5,
+                         color: '#01A9DB' //AZUL
+                     },{
+                         from: 5,
+                         to: 15,
+                         color: '#04B404' //VERDE
+                      },{
+                         from: 15,
+                         to: 25,
+                         color: '#FACC2E' //AMARILLO
+                     }, {
+                         from: 25,
+                         to: 40,
+                         color: '#FF8000' // NARANJA
+                     }, {
+                         from: 35,
+                         to: 45,
+                         color: '#FF0000' //ROJO
+                     },{
+                         from: 45,
+                         to: 50,
+                         color: '#8A0808' //ROJO
+                     }]
+                 },
+         
+                 series: [{
+                     name: 'Temperatura',
+                     data: [{{temperatura}}],
+                     tooltip: {
+                         valueSuffix: 'ºC'
+                     }
+                 }]
+         
+             }
+         );
+         });
+         
+         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      </script>
+   </head>
+   <body>
+      <div>
+         <div id = "medidores">
+            <div id="containerHum" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto;display:inline-block;" ></div>
+            <div id="containerTemp" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto; display:inline-block;" ></div>
+         </div>
+         <div>
+            <div class="humContainer"> 
+               <h2>M:{{ mediaH }}%</h2>
+            </div>
+            <div class="humContainer">
+               <h2>Max:{{ maxH }}%</h2>
+            </div>
+            <div class="humContainer">
+               <h2>Min:{{ minH }}%</h2>
+            </div>
+         </div>
+         <div>
+	<div class="tempContainer" >   
+               <h3>Tmed: {{ mediaT }}º</h3>
+         </div>
+	<div class="tempContainer">
+               <h3>max: {{ maxT }}º</h3>
+         </div>
+	<div class="tempContainer">
+               <h3>min: {{ minT }}º</h3>
+         </div>
+         </div>
+      </div>
+      <div id="container">{{  weatherchart|load_charts:"container" }}</div>
+   </body>
+</html>
+{% endblock %}
