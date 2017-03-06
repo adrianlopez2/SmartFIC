@@ -23,4 +23,5 @@ urlpatterns = [
 	url(r'^$', prueba),
 	url(r'^maxmin/$', maxmin),
 	url(r'^maxmin7dias/$', maxmin7dias),
+    url(r'^onoff/$', onoff),
 ]

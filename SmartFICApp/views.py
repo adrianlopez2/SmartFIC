@@ -171,8 +171,22 @@ def apagar():
 	ser.close()
 
 
-
-
+def onoff():
+	PORT = '/dev/ttyUSB0'
+	BAUD_RATE = 9600
+	 
+	# Open serial port
+	ser = serial.Serial(PORT, BAUD_RATE)
+	 
+	# Create API object
+	xbee = ZigBee(ser,escaped=True)
+	 
+	xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
+	time.sleep(3)
+	xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')	
+	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@Hl`')
+	#NODO:   '\x00\x13\xa2\x00@Hl`'  
+	#ROUTER: '\x00\x13\xa2\x00@:\x8a\xde'
 
 
 

@@ -295,6 +295,26 @@
          <div id = "medidores">
             <div id="containerHum" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto;display:inline-block;" ></div>
             <div id="containerTemp" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto; display:inline-block;" ></div>
+			<script>
+			    function onOff(){
+					$.ajax({
+					 type: "POST",
+					 contentType: "application/json; charset=utf-8",
+					 url: "/onoff",
+					 data: "",
+					 dataType: "json",
+					 async: true,
+					 success: function (data, textStatus) {
+					   
+					 },
+					 error: function (data, status, error) {
+					 
+					 },
+					 cache: false
+					});
+				}
+			</script>
+			<button onclick="onOff();">Encender</button>
          </div>
          <!--
          <div>
