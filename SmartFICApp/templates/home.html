@@ -296,6 +296,7 @@
             <div id="containerHum" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto;display:inline-block;" ></div>
             <div id="containerTemp" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto; display:inline-block;" ></div>
          </div>
+         <!--
          <div>
             <div class="humContainer"> 
                <h2>M:{{ mediaH }}%</h2>
@@ -307,17 +308,19 @@
                <h2>Min:{{ minH }}%</h2>
             </div>
          </div>
+         
          <div>
-	<div class="tempContainer" >   
+			<div class="tempContainer" >   
                <h3>Tmed: {{ mediaT }}º</h3>
+         	</div>
+			<div class="tempContainer">
+	               <h3>max: {{ maxT }}º</h3>
+	        </div>
+			<div class="tempContainer">
+	               <h3>min: {{ minT }}º</h3>
+	        </div>
          </div>
-	<div class="tempContainer">
-               <h3>max: {{ maxT }}º</h3>
-         </div>
-	<div class="tempContainer">
-               <h3>min: {{ minT }}º</h3>
-         </div>
-         </div>
+         -->
       </div>
       <div id="container">{{  weatherchart|load_charts:"container" }}</div>
    </body>
