@@ -171,7 +171,7 @@ def apagar():
 	ser.close()
 
 
-def onoff():
+def onoff(request):
 	PORT = '/dev/ttyUSB0'
 	BAUD_RATE = 9600
 	 
