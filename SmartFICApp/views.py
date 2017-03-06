@@ -188,7 +188,7 @@ def on(request):
 	#NODO:   '\x00\x13\xa2\x00@Hl`'  
 	#ROUTER: '\x00\x13\xa2\x00@:\x8a\xde'
 
-def on(request):
+def off(request):
 	PORT = '/dev/ttyUSB0'
 	BAUD_RATE = 9600
 	 
