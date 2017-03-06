@@ -296,11 +296,11 @@
             <div id="containerHum" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto;display:inline-block;" ></div>
             <div id="containerTemp" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto; display:inline-block;" ></div>
 			<script>
-			    function onOff(){
+			    function on(){
 					$.ajax({
-					 type: "GET",
+					 type: "POST",
 					 contentType: "application/json; charset=utf-8",
-					 url: "/onoff",
+					 url: "/on",
 					 data: "",
 					 dataType: "json",
 					 async: true,
@@ -314,7 +314,27 @@
 					});
 				}
 			</script>
-			<button onclick="onOff();">Encender</button>
+			<button onclick="on();">Encender</button>
+			<script>
+			    function off(){
+					$.ajax({
+					 type: "POST",
+					 contentType: "application/json; charset=utf-8",
+					 url: "/off",
+					 data: "",
+					 dataType: "json",
+					 async: true,
+					 success: function (data, textStatus) {
+					   
+					 },
+					 error: function (data, status, error) {
+					 
+					 },
+					 cache: false
+					});
+				}
+			</script>
+			<button onclick="off();">Encender</button>
          </div>
          <!--
          <div>
