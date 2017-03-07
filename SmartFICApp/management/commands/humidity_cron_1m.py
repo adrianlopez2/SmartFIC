@@ -71,7 +71,7 @@ class Command(BaseCommand):
 				ambiente.Temperatura1 = tempC1
 				ambiente.Humedad2 = 0
 				ambiente.Temperatura2 = tempC2
-				ambiente.save()
+				ambiente.update()
 			except KeyboardInterrupt:
 				break
 		self.stdout.write('Humedad: '+str(percentRH1) + ' ' + str(percentRH2) +' Temperatura: '+ str(tempC1) +' '+ str(tempC2))
