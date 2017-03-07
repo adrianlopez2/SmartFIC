@@ -21,8 +21,8 @@ class Ambiente1m(models.Model):
 	Humedad1 = models.DecimalField(max_digits=5, decimal_places=2)
 	Temperatura2 = models.DecimalField(max_digits=5, decimal_places=2)
 	Humedad2 = models.DecimalField(max_digits=5, decimal_places=2)
-	Led1State = models.IntegerField()
-	Led2State = models.IntegerField()
+	Led1State = models.IntegerField(nullable = True)
+	Led2State = models.IntegerField(nullable=True)
 
 class AmbienteStats(models.Model):
 	Zona = models.CharField(max_length=10,default=0)
