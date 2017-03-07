@@ -23,7 +23,6 @@ def home(request):
 	humedad = Ambiente1m.objects.values_list('Humedad1',flat=True)
 	mediaT = Ambiente.objects.aggregate(Avg('Temperatura'),Avg('Humedad'),Max('Temperatura'),Max('Humedad'),Min('Temperatura'),Min('Humedad'))
  	graf = grafico_ambiente()
-	encender()
 	return render_to_response('home.html', {
 	'humedad': humedad[0],
 	'temperatura': temperatura[0],
@@ -36,7 +35,6 @@ def home(request):
 	 'weatherchart': graf })
 
 def prueba(request):
-	apagar()
         return render_to_response('prueba.html')
 
 ####
