@@ -139,8 +139,8 @@ def on(request):
 	xbee = ZigBee(ser,escaped=True)
 	 
 	xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
-	time.sleep(3)
-	xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
+	#time.sleep(3)
+	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
 	ambiente = Ambiente1m()	
 	Ambiente1m.objects.all().update(Led1State=1)
 	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@Hl`')
@@ -158,19 +158,10 @@ def off(request):
 	xbee = ZigBee(ser,escaped=True)
 	 
 	xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
-	time.sleep(3)
-	xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')	
+	#time.sleep(3)
+	#xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')	
 	ambiente = Ambiente1m()	
-	temperatura1 = Ambiente1m.objects.values_list('Temperatura1',flat=True)
-	temperatura2 = Ambiente1m.objects.values_list('Temperatura2',flat=True)
-	humedad1 = Ambiente1m.objects.values_list('Humedad1',flat=True)
-	humedad2 = Ambiente1m.objects.values_list('Humedad2',flat=True)
-	ambiente.Temperatura1 = temperatura1
-	ambiente.Temperatura2 = temperatura2
-	ambiente.Humedad1 = humedad1
-	ambiente.Humedad2 = humedad2
-	ambiente.Led1State = 0
-	ambiente.save()
+	Ambiente1m.objects.all().update(Led1State=0)
 	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@Hl`')
 	#NODO:   '\x00\x13\xa2\x00@Hl`'  
 	#ROUTER: '\x00\x13\xa2\x00@:\x8a\xde'
