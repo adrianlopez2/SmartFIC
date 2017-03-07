@@ -141,6 +141,9 @@ def on(request):
 	xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
 	time.sleep(3)
 	xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')	
+	ambiente = Ambiente1m()
+	ambiente.Led1State = 1
+	ambiente.save()
 	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@Hl`')
 	#NODO:   '\x00\x13\xa2\x00@Hl`'  
 	#ROUTER: '\x00\x13\xa2\x00@:\x8a\xde'
@@ -158,6 +161,9 @@ def off(request):
 	xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
 	time.sleep(3)
 	xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')	
+	ambiente = Ambiente1m()
+	ambiente.Led1State = 0
+	ambiente.save()
 	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@Hl`')
 	#NODO:   '\x00\x13\xa2\x00@Hl`'  
 	#ROUTER: '\x00\x13\xa2\x00@:\x8a\xde'
