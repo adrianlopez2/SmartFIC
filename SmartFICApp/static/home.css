@@ -1,3 +1,4 @@
+{% load static %}
 body {
   background-color: #908E8E;
   background: linear-gradient(#908E8E, #B5B5B5);
@@ -56,6 +57,16 @@ header{
 #container7dias{
   width: 50vw;
   height: 40vh;
+}
+
+.ledContainer { 
+    position: relative; 
+    height: 25vh;
+    display: inline-block;
+    width:23%;
+    background-image: url({% static "images/ledOn.jpg" %});
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .humContainer { 
