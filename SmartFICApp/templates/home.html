@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load static %}
 {% block title %}{% endblock %}
 {% block content %}
 <!DOCTYPE html>
@@ -317,7 +318,7 @@
 			
 
 			</script>
-			<div class="ledContainer"> 				
+			<div class="ledContainer" style = "background-image: url({% static "images/ledOn.jpg" %});"> 				
 				<!-- <img src="{% static "images/ledOn.jpg" %}" alt="My image"style="width:304px;height:228px;"/>
 				-->
 			</div>
