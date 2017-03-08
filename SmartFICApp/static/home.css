@@ -59,7 +59,13 @@ header{
 }
 
 .ledContainer { 
+	position: relative; 
+    height: 25vh;
+    display: inline-block;
+    width:23%;
     background-image: url(./images/ledON.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .humContainer { 
