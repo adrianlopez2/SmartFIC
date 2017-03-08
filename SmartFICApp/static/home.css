@@ -58,16 +58,6 @@ header{
   height: 40vh;
 }
 
-.ledContainer { 
-	position: relative; 
-    height: 25vh;
-    display: inline-block;
-    width:100%;
-    background-image: url(./images/ledOn.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
 .humContainer { 
     position: relative; 
     height: 25vh;
