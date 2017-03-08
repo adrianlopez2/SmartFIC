@@ -316,7 +316,7 @@
 				}
 			</script>
 			<div class="ledContainer"> HOLA
-				<img src="./images/ledOn.jpg" alt="Mountain View" style="width:304px;height:228px;">
+				<img src="{{STATIC}}/images/ledOn.jpg" alt="Mountain View" style="width:304px;height:228px;">
 
 			</div>
 			<!--<button onclick="off();">Apagar</button> 
@@ -345,6 +345,7 @@
 			{% endif %}
 		 <a>{{led1State}}</a>
          </div>
+         <!--
          <div>
             <div class="humContainer"> 
                <h2>M:{{ mediaH }}%</h2>
@@ -368,6 +369,7 @@
 	               <h3>min: {{ minT }}º</h3>
 	        </div>
          </div>
+         -->
       </div>
       <div id="container">{{  weatherchart|load_charts:"container" }}</div>
    </body>
