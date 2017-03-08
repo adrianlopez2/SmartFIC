@@ -34,7 +34,7 @@ def home(request):
 	'maxH': mediaT['Humedad__max'],
 	'minT': mediaT['Temperatura__min'],
 	'minH': mediaT['Humedad__min'],
-	 'weatherchart': graf })
+	'weatherchart': graf })
 
 def prueba(request):
         return render_to_response('prueba.html')
@@ -50,11 +50,12 @@ def grafico_ambiente():
 		{
 		'source': Ambiente.objects.all()},
 		'terms': [ 'Timestamp','Temperatura','Humedad']
-		},
-		{'options': {
-        'source': Ambiente2.objects.all()},
-        'terms': [{'am2_Timestamp': 'Timestamp'},{'am2_Temperatura': 'Temperatura'}]
 		}
+		#,
+		#{'options': {
+        #'source': Ambiente2.objects.all()},
+        #'terms': [{'am2_Timestamp': 'Timestamp'},{'am2_Temperatura': 'Temperatura'}]
+		#}
 		]
 	)
 #Step 2: Create the Chart object
@@ -63,8 +64,8 @@ def grafico_ambiente():
 			series_options =[{'options':{
 				'type': 'line','stacking': False},
 				'terms':{
-						'Timestamp':['Temperatura','Humedad'],
-						'am2_Timestamp':['am2_Temperatura']
+						'Timestamp':['Temperatura','Humedad']
+						#,'am2_Timestamp':['am2_Temperatura']
 						}}],
 			chart_options ={'title': {'text': 'Ambiente'},'xAxis': {'title': {'text': 'Dia'}}}
 	)
