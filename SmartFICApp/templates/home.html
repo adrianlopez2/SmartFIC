@@ -295,26 +295,7 @@
          <div id = "medidores">
             <div id="containerHum" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto;display:inline-block;" ></div>
             <div id="containerTemp" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto; display:inline-block;" ></div>
-			<script>
-			    function on(){
-					$.ajax({
-					 type: "GET",
-					 contentType: "application/json; charset=utf-8",
-					 url: "/on",
-					 data: "",
-					 dataType: "json",
-					 async: true,
-					 success: function (data, textStatus) {
-					   
-					 },
-					 error: function (data, status, error) {
-					 
-					 },
-					 cache: false
-					});
-				}
-			</script>
-			<button onclick="on();">Encender</button>
+            {% if {{led1State}} == 1 %}
 			<script>
 			    function off(){
 					$.ajax({
@@ -335,7 +316,29 @@
 				}
 			</script>
 			<button onclick="off();">Apagar</button>
-			<a>{{led1State}}</a>
+			{% else %}
+			<script>
+			    function on(){
+					$.ajax({
+					 type: "GET",
+					 contentType: "application/json; charset=utf-8",
+					 url: "/on",
+					 data: "",
+					 dataType: "json",
+					 async: true,
+					 success: function (data, textStatus) {
+					   
+					 },
+					 error: function (data, status, error) {
+					 
+					 },
+					 cache: false
+					});
+				}
+			</script>
+			<button onclick="on();">Encender</button>
+			{% endif %}
+		 <a>{{led1State}}</a>
          </div>
          <!--
          <div>
