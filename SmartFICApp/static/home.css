@@ -62,9 +62,8 @@ header{
 	position: relative; 
     height: 25vh;
     display: inline-block;
-    width:23%;
+    width:100%;
     background-image: url(./images/ledOn.jpg);
-    background-size: 100px;
     background-repeat: no-repeat;
     background-position: center center;
 }
