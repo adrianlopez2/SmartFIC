@@ -1,4 +1,9 @@
 # SmartFIC
-Desarrollo de una aplicación WEB para SmartHousing usando Django
+Development of a WEB Smarthouse application.
 
-Proyecto IoT usando el protocolo ZigBee. La estructura se basa un nodo coordinador, un router y un nodo hoja con sus correspondientes sensores.
+IoT project using the ZigBee wireless network protocol.
+The structure is based on two information gathering nodes sending data to coordinating node connected to a Raspberry Pi that will perform the storage and presentation.
+
+This project is developed in Django framework, using PostgreSQL and HighCharts for the representation of the information.
+
+
