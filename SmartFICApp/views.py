@@ -21,10 +21,12 @@ from xbee import ZigBee
 def home(request):
 	temperatura = Ambiente1m.objects.values_list('Temperatura1',flat=True)
 	humedad = Ambiente1m.objects.values_list('Humedad1',flat=True)
+	led1State = Ambiente1m.objects.values_list('Led1State',flat=True)
 	mediaT = Ambiente.objects.aggregate(Avg('Temperatura'),Avg('Humedad'),Max('Temperatura'),Max('Humedad'),Min('Temperatura'),Min('Humedad'))
  	graf = grafico_ambiente()
 	return render_to_response('home.html', {
 	'humedad': humedad[0],
+	'led1State':led1State[0],
 	'temperatura': temperatura[0],
 	'mediaT': round(mediaT['Temperatura__avg']),
 	'mediaH': round(mediaT['Humedad__avg']),
