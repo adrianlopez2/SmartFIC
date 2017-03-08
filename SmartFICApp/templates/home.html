@@ -314,10 +314,12 @@
 					 cache: false
 					});
 				}
+			{% load static %}
+
 			</script>
 			<div class="ledContainer"> HOLA
-				<img src="{{STATIC}}/images/ledOn.jpg" alt="Mountain View" style="width:304px;height:228px;">
-
+				
+				<img src="{% static "images/ledOn.jpg" %}" alt="My image"style="width:304px;height:228px;"/>
 			</div>
 			<!--<button onclick="off();">Apagar</button> 
 			-->
