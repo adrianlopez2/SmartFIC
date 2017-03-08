@@ -7,7 +7,7 @@ import serial
 import datetime
 import time
 from django.shortcuts import render_to_response
-from SmartFICApp.models import Ambiente,AmbienteStats,Ambiente1m
+from SmartFICApp.models import Ambiente,Ambiente2,AmbienteStats,Ambiente1m
 from chartit import DataPool, Chart
 from pytz import timezone, utc
 from django.conf import settings
