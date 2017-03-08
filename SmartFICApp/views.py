@@ -43,9 +43,15 @@ def grafico_ambiente():
 		#ts = Ambiente.objects.get()
 #Step 1: Create a DataPool with the data we want to retrieve.
 	weatherdata = DataPool(
-		series=[{'options': {
+		series=[
+		{'options': 
+		{
 		'source': Ambiente.objects.all()},
 		'terms': [ 'Timestamp','Temperatura','Humedad']
+		},
+		{'options': {
+        'source': Ambiente2.objects.all()},
+        'terms': [{'am2_Timestamp': 'Timestamp'},{'am2_Temperatura': 'Temperatura'}]
 		}
 		]
 	)
@@ -54,7 +60,7 @@ def grafico_ambiente():
 		datasource = weatherdata,
 			series_options =[{'options':{
 				'type': 'line','stacking': False},
-				'terms':{'Timestamp': ['Temperatura','Humedad']}}],
+				'terms':{'Timestamp': ['Temperatura','Humedad','am2_Temperatura']}}],
 			chart_options ={'title': {'text': 'Ambiente'},'xAxis': {'title': {'text': 'Dia'}}}
 	)
 #Step 3: Send the chart object to the template.
