@@ -60,7 +60,10 @@ def grafico_ambiente():
 		datasource = weatherdata,
 			series_options =[{'options':{
 				'type': 'line','stacking': False},
-				'terms':{'Timestamp': ['Temperatura','Humedad','am2_Temperatura']}}],
+				'terms':{
+						'Timestamp':['Temperatura','Humedad'],
+						'am2_Timestamp':['am2_Temperatura']
+						}}],
 			chart_options ={'title': {'text': 'Ambiente'},'xAxis': {'title': {'text': 'Dia'}}}
 	)
 #Step 3: Send the chart object to the template.
