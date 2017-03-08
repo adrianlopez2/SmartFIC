@@ -72,7 +72,7 @@ class Command(BaseCommand):
 				ambiente.Temperatura1 = tempC1
 				ambiente.Humedad2 = 0
 				ambiente.Temperatura2 = tempC2
-				ambiente.Led1State = led1State
+				ambiente.Led1State = led1State[0]
 				ambiente.save()
 			except KeyboardInterrupt:
 				break
