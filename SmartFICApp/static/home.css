@@ -59,6 +59,14 @@ header{
   height: 40vh;
 }
 
+.led{
+	background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 75vw;
+    height: 75vh;	
+}
+
 .ledContainer { 
     position: relative; 
     height: 25vh;
