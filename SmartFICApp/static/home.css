@@ -2,7 +2,6 @@
 body {
   background-color: #908E8E;
   background: linear-gradient(#908E8E, #B5B5B5);
-  height: 145vh;
   margin: 0px;
 }
 
@@ -11,7 +10,7 @@ header{
   color: #FFFFFF;
   height: 6vh;
   font-size: 5vh;
-    line-height: 5vh;
+  line-height: 5vh;
   font-weight: 900;
 
 }
@@ -60,20 +59,16 @@ header{
 }
 
 .led{
-	background-repeat: no-repeat;
-    background-position: 50%;
     border-radius: 50%;
-    width: 75vw;
-    height: 75vh;	
+    width: 14vw;
+    height:29vh;
+    vertical-align: baseline;	
 }
 
 .ledContainer { 
     position: relative; 
-    height: 25vh;
     display: inline-block;
     width:23%;
-    background-repeat: no-repeat;
-    background-position: center center;
 }
 
 .humContainer { 
@@ -168,5 +163,3 @@ ul, ol {
 	right:-140px;
 	top:0px;
 }
-
-
