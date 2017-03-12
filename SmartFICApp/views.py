@@ -157,7 +157,7 @@ def on(request):
 		xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
 		Ambiente1m.objects.all().update(Led1State=0)
 		
-	return HttpResponse( content_type = "application/json",status_code = 200)
+	return HttpResponse( content_type = "application/json",status = 200)
 	#time.sleep(3)
 	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
 		
