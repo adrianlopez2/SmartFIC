@@ -307,8 +307,7 @@
 					 dataType: "json",
 					 async: true,
 					 success: function (data, textStatus) {
-					   ledId.attr('src', "images/ledOff.jpg");
-					   //ledId.src="images/ledOff.jpg"
+					 	$('#ledId')[0].src = "../static/images/ledOff.png"
 					 },
 					 error: function (data, status, error) {
 					 
@@ -336,8 +335,7 @@
 					 dataType: "json",
 					 async: true,
 					 success: function (data, textStatus) {
-					   ledId.attr('src', "images/ledOn.jpg");
-					   //ledId.src="images/ledOn.jpg"
+					   $('#ledId')[0].src = "../static/images/ledOn.png"
 					 },
 					 error: function (data, status, error) {
 					 
