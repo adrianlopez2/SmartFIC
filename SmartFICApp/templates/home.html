@@ -307,7 +307,7 @@
 					 dataType: "json",
 					 async: true,
 					 success: function (data, textStatus) {
-					   //idImagen.src="images/ledOff.jpg"
+					   ledId.src="images/ledOff.jpg"
 					 },
 					 error: function (data, status, error) {
 					 
@@ -319,7 +319,7 @@
 
 			</script>
 			<div class="ledContainer" onclick="off();" target="_blank">
-				<img class="led" src="{% static "images/ledOn.png" %}">
+				<img id="ledId" class="led" src="{% static "images/ledOn.png" %}">
 				</img>
 			</div>
 			<button onclick="off();">Apagar</button> 
@@ -335,7 +335,7 @@
 					 dataType: "json",
 					 async: true,
 					 success: function (data, textStatus) {
-					   //idImagen.src="images/ledOn.jpg"
+					   ledId.src="images/ledOn.jpg"
 					 },
 					 error: function (data, status, error) {
 					 
@@ -345,7 +345,7 @@
 				}
 			</script>
 			<div class="ledContainer" onclick="on();" target="_blank">
-				<img class="led" src="{% static "images/ledOff.png" %}">
+				<img id="ledId" class="led" src="{% static "images/ledOff.png" %}">
 				</img>
 			</div>
 			<button onclick="on();">Encender</button>
