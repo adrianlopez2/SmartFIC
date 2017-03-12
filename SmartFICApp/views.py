@@ -149,6 +149,7 @@ def on(request):
 	ser = serial.Serial(PORT, BAUD_RATE)
 	# Create API object
 	xbee = ZigBee(ser,escaped=True)
+	print led1State
 	if led1State == 0:
 		xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
 		Ambiente1m.objects.all().update(Led1State=1)
