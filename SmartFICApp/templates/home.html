@@ -318,10 +318,10 @@
 			
 
 			</script>
-			<a class="ledContainer" onclick="off();" target="_blank">
+			<div class="ledContainer" onclick="off();" target="_blank">
 				<img class="led" src="{% static "images/ledOn.jpg" %}">
 				</img>
-			</a>
+			</div>
 			<button onclick="off();">Apagar</button> 
 			
 			{% else %}
@@ -344,10 +344,10 @@
 					});
 				}
 			</script>
-			<a class="ledContainer" onclick="on();" target="_blank">
+			<div class="ledContainer" onclick="on();" target="_blank">
 				<img class="led" src="{% static "images/ledOff.jpg" %}">
 				</img>
-			</a>
+			</div>
 			<button onclick="on();">Encender</button>
 			{% endif %}
 		 <a>{{led1State}}</a>

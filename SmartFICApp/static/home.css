@@ -60,15 +60,17 @@ header{
 
 .led{
     border-radius: 50%;
-    width: 14vw;
-    height:29vh;
-    vertical-align: baseline;	
+    max-width: 14vw;
+    max-height:29vh;
+    vertical-align: baseline;
 }
 
 .ledContainer { 
     position: relative; 
     display: inline-block;
-    width:23%;
+    width: 14vw;
+    height: 29vh;
+    cursor: pointer;
 }
 
 .humContainer { 
