@@ -307,7 +307,6 @@
 					 dataType: "json",
 					 async: true,
 					 success: function (data, textStatus) {
-					 	
 					 },
 					 complete: function (data, textStatus) {
 					   $('#ledId')[0].src = "../static/images/ledOff.png"
@@ -317,15 +316,10 @@
 					 cache: false
 					});
 				}
-			
-
 			</script>
 			<div class="ledContainer" onclick="off();" target="_blank">
-				<img id="ledId" class="led" src="{% static "images/ledOn.png" %}">
-				</img>
+				<img id="ledId" class="led" src="{% static "images/ledOn.png" %}"></img>
 			</div>
-			<button onclick="off();">Apagar</button> 
-			
 			{% else %}
 			<script>
 			    function on(){
@@ -349,38 +343,10 @@
 				}
 			</script>
 			<div class="ledContainer" onclick="on();" target="_blank">
-				<img id="ledId" class="led" src="{% static "images/ledOff.png" %}">
-				</img>
+				<img id="ledId" class="led" src="{% static "images/ledOff.png" %}"></img>
 			</div>
-			<button onclick="on();">Encender</button>
 			{% endif %}
-		 <a>{{led1State}}</a>
          </div>
-         <!--
-         <div>
-            <div class="humContainer"> 
-               <h2>M:{{ mediaH }}%</h2>
-            </div>
-            <div class="humContainer">
-               <h2>Max:{{ maxH }}%</h2>
-            </div>
-            <div class="humContainer">
-               <h2>Min:{{ minH }}%</h2>
-            </div>
-         </div>
-         
-         <div>
-			<div class="tempContainer" >   
-               <h3>Tmed: {{ mediaT }}º</h3>
-         	</div>
-			<div class="tempContainer">
-	               <h3>max: {{ maxT }}º</h3>
-	        </div>
-			<div class="tempContainer">
-	               <h3>min: {{ minT }}º</h3>
-	        </div>
-         </div>
-         -->
       </div>
       <div id="container">{{  weatherchart|load_charts:"container" }}</div>
    </body>
