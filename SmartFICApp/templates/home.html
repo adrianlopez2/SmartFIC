@@ -307,7 +307,10 @@
 					 dataType: "json",
 					 async: true,
 					 success: function (data, textStatus) {
-					 	$('#ledId')[0].src = "../static/images/ledOff.png"
+					 	
+					 },
+					 complete: function (data, textStatus) {
+					   $('#ledId')[0].src = "../static/images/ledOff.png"
 					 },
 					 error: function (data, status, error) {
 					 
@@ -335,10 +338,12 @@
 					 dataType: "json",
 					 async: true,
 					 success: function (data, textStatus) {
+					   
+					 },
+					 complete: function (data, textStatus) {
 					   $('#ledId')[0].src = "../static/images/ledOn.png"
 					 },
 					 error: function (data, status, error) {
-					 
 					 },
 					 cache: false
 					});
