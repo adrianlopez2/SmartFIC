@@ -20,7 +20,7 @@ from SmartFICApp.views import *
 urlpatterns = [
 	url(r'^admin/', admin.site.urls),
 	url(r'^home/$', home), #Home de la app
-	url(r'^$', prueba),
+	url(r'^$', presentacion),
 	url(r'^maxmin/$', maxmin),
 	url(r'^maxmin7dias/$', maxmin7dias),
     url(r'^on/$', on),

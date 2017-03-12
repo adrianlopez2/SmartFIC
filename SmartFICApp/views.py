@@ -1,7 +1,5 @@
-from django.shortcuts import render
-
 # Create your views here.
-
+from django.shortcuts import render
 from django.http import HttpResponse
 import serial
 import datetime
@@ -17,7 +15,6 @@ from xbee import ZigBee
 
 
 ####
-
 def home(request):
 	temperatura = Ambiente1m.objects.values_list('Temperatura1',flat=True)
 	humedad = Ambiente1m.objects.values_list('Humedad1',flat=True)
@@ -36,8 +33,8 @@ def home(request):
 	'minH': mediaT['Humedad__min'],
 	'weatherchart': graf })
 
-def prueba(request):
-        return render_to_response('prueba.html')
+def presentacion(request):
+        return render_to_response('presentacion.html')
 
 ####
 
@@ -72,17 +69,6 @@ def grafico_ambiente():
 #Step 3: Send the chart object to the template.
 	return cht
 
-#######################################
-#######################################
-
-def utcisoformat(dt):
-    #Return a datetime object in ISO 8601 format in UTC, without microseconds
-    #or time zone offset other than 'Z', e.g. '2011-06-28T00:00:00Z'.
-    # Convert datetime to UTC, remove microseconds, remove timezone, convert to string
-	TZ = timezone(settings.TIME_ZONE)
-	return TZ.localize(dt.replace(microsecond=0)).astimezone(utc).replace(tzinfo=None).isoformat() + 'Z'
-
-#######################################
 #######################################
 def maxmin(request):
 	graf = grafico_maxmin()
@@ -157,25 +143,8 @@ def on(request):
 		xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
 		Ambiente1m.objects.all().update(Led1State=0)
 		
-	return HttpResponse( content_type = "application/json",status = 200)
-	#time.sleep(3)
-	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
-		
+	return HttpResponse(content_type = "application/json",status = 200)
 	
-	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@Hl`')
-	#NODO:   '\x00\x13\xa2\x00@Hl`'  
-	#ROUTER: '\x00\x13\xa2\x00@:\x8a\xde'
-
-def off(request):
-	PORT = '/dev/ttyUSB0'
-	BAUD_RATE = 9600
-	# Open serial port
-	ser = serial.Serial(PORT, BAUD_RATE) 
-	# Create API object
-	xbee = ZigBee(ser,escaped=True)
-	xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')	
-	ambiente = Ambiente1m()	
-	Ambiente1m.objects.all().update(Led1State=0)
 	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@Hl`')
 	#NODO:   '\x00\x13\xa2\x00@Hl`'  
 	#ROUTER: '\x00\x13\xa2\x00@:\x8a\xde'

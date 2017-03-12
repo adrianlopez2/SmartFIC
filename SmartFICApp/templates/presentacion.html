@@ -1,0 +1,467 @@
+{% load staticfiles %}
+{% block title %}{% endblock %}
+{% block content %}
+
+<!-- Index Layout Start -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+  
+<!-- HEAD Start -->
+
+<head>
+ 
+
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="/">
+  <title>SmartFIC</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link href="{% static "css/grayscale.css" %}" rel="stylesheet">
+  
+  <link href="{% static "css/timeline.css" %}" rel="stylesheet">
+
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+  
+
+  
+
+  
+
+
+  <!-- iOS Web App mode -->
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" sizes="36x36" href="/img/web-app/icon-36p.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="/img/web-app/icon-48p.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/web-app/icon-72p.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="/img/web-app/icon-96p.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/web-app/icon-144p.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/img/web-app/icon-192p.png">
+
+  <!-- Android Web App mode -->
+
+  <link rel="manifest" href="/manifest.json">
+
+
+
+
+  
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#000000">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#000000">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+  
+
+
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</head>
+
+<!-- HEAD End -->
+
+
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top"  data-offset="151">
+
+    
+<!-- Navigation Start -->
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+      
+        <a class="navbar-brand page-scroll" href="#page-top">
+      
+          <div>
+	 SmartFIC
+          </div>
+        </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        
+
+          <!-- Scroll to section for each page in index -->
+          
+            <li>
+              <a class="page-scroll" href="#about"> Acerca de </a>
+            </li>
+                   
+            <li>
+              <a class="page-scroll" href="#timeline"> Proyecto </a>
+            </li>
+          
+            <li>
+              <a class="page-scroll" href="#contact"> Contacto </a>
+            </li>
+          
+
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Navigation End -->
+
+
+    
+<!-- Intro Start -->
+
+<header class="intro">
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h1 class="brand-heading">&nbsp;</h1>
+            <h1 class="brand-heading">&nbsp;</h1>
+            <span class="intro-text"><!--
+If you want to have a static message in your intro layout, disable the dynamic-typing in the _config.yml and write here your text
+-->
+</span>
+            <h5>&nbsp;</h5>
+            <a href="/home" class="page-scroll">
+              <img class="img-me" src="{% static "images/iot2.png" %}" alt="">
+            </a>
+          </div>
+        </div>
+    </div>
+  </div>
+</header>
+
+<!-- Intro End -->
+
+
+    
+      
+        
+      
+        
+          
+<!-- About Start -->
+
+<section id="about" class="container content-section text-center">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h2 id="about">Acerca de</h2>
+
+<p>SmartFIC es un proyecto de fin de grado realizado en la Facultad de informática de la Coruña.</p>
+
+<p>El proyecto tiene como finalidad llevar a cabo una comunicación inalámbrica entre diferentes nodos distribuidos en un espacio. 
+Midiendo temperatura y humedad, aunque añadir otros tipos de datos a analizar implicaría pequeños cambios en el código, enfocado a ser desplegado en un espacio pequeño como una vivienda o un pequeño huerto.
+</p>
+
+<p>
+De esta manera, entenderemos mejor en qué ambiente vivimos o trabajamos pudiendo condicionar nuestra forma de vida a partir del estudio realizado.
+</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- About End -->
+
+          
+<!-- Timeline Start -->
+
+<section id="timeline" class="container content-section text-center">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+      <h2 id="timeline">Proyecto</h2>
+
+
+      <ul class="timeline">
+
+        
+          
+          
+
+          <li class="
+          
+          ">
+            <div class="timeline-image">
+              <img class="img-circle img-responsive" src="{% static "images/timeline/ard.jpg" %}" alt="">
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>FASE 1</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Implementación del código para leer los parámetros y enviarlos vía wiereless.</p>
+              </div>
+            </div>
+          </li>
+        
+          
+          
+
+          <li class="
+          
+            timeline-inverted
+          
+          ">
+            <div class="timeline-image">
+              <img class="img-circle img-responsive" src="{% static "images/timeline/rasplogo.png" %}" alt="">
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>FASE 2</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Recibir los datos y transmitirselo al servidor.</p>
+              </div>
+            </div>
+          </li>
+        
+          
+          
+
+          <li class="
+          
+          ">
+            <div class="timeline-image">
+              <img class="img-circle img-responsive" src="{% static "images/timeline/django.png" %}" alt="">
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>FASE 3</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Almacenar los datos en PostgreSQL, Framework Django.</p>
+
+              </div>
+            </div>
+          </li>
+        
+
+        <li class="timeline-inverted">
+          <div class="timeline-image">
+            <img class="img-circle img-responsive" src="{% static "images/timeline/lineas.png" %}" alt="">
+          </div>
+ <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>FASE 4</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Proporcionar al usuario la información que necesita.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline End -->
+
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+          
+<!-- Contact Start -->
+
+<section id="contact" class="container content-section text-center">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+      <h2 id="contact">Contact</h2>
+
+<p></p>
+
+
+      
+        
+          
+            <p>
+            <script>
+              function join_at_email(user, domain){
+              return (user && domain)?(user + "@" + domain):"";
+              }
+              document.write('<a href="mailto:'
+              + join_at_email( "adrianlopez00", "gmail.com" )
+              + '">'
+              + join_at_email( "adrianlopez00", "gmail.com" )
+              + '</a>'
+              );
+              </script>
+            </p>
+        
+      
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact End -->
+
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <!-- Footer Start -->
+
+<footer>
+
+    <!-- Social Buttons Start -->
+
+<ul class="list-inline social-buttons">
+    
+   
+    <li><a href="https://twitter.com/Shaderlolz" target="_blank"><i class="fa fa-twitter fa-fw"></i></a></li>
+    
+    <li><a href="https://linkedin.com/in/adrianlopezv" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+    
+    <li><a href="https://github.com/adrianlopez2" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+    
+    
+</ul>
+
+<!-- Social Buttons End -->
+
+
+    <p></p>
+
+    <div class="container text-center">
+        <p>SmartFIC . Adrián López Veiga . 2016 - 2017</p>
+    </div>
+
+<!-- Place this tag where you want the button to render. -->
+<p><a class="github-button" href="https://github.com/adrianlopez2" data-style="mega" data-count-href="/adrianlopez2/followers" data-count-api="/users/adrianlopez2#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @adrianlopez2 on GitHub">Follow @adrianlopez2</a></p>
+
+</footer>
+
+<p><br><br><br><br><br><br></p>
+
+<!-- Footer End -->
+
+
+    
+<!-- Javascript Start -->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<!--* Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)
+* Code licensed under the Apache License v2.0.
+* For details, see http://www.apache.org/licenses/LICENSE-2.0.-->
+<script>
+function toggleNavCollapse(){50<$(".navbar").offset().top?$(".navbar-fixed-top").addClass("top-nav-collapse"):$(".navbar-fixed-top").removeClass("top-nav-collapse");}
+$(document).ready(toggleNavCollapse);
+$(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click",function(b){var a=$(this);$("html, body").stop().animate({scrollTop:$(a.attr("href")).offset().top-50},1500,"easeInOutExpo",function(){a.blur()});b.preventDefault()})});$(".navbar-collapse ul li a").click(function(){$(".navbar-toggle:visible").click()});
+</script>
+
+
+
+  <!-- Collapse navbar when navbar-brand is clicked -->
+
+  <script>
+  $(function(){$(".navbar-brand").click(function(){$(".collapse.in")&&$(".collapse.in").animate({height:"1px"},500,function(){$(".collapse.in").removeClass("in")})})});
+  </script>
+
+
+  <!-- Disqus -->
+
+  
+
+  
+
+    <!-- Comments Counter Start -->
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'alex'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+
+    <!-- Comments Counter End -->
+
+<!-- Javascript End -->
+{% endblock %}
+
+  </body>
+</html>
+
+<!-- Index Layout End -->
+
