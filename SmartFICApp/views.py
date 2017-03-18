@@ -137,10 +137,10 @@ def on(request):
 	xbee = ZigBee(ser,escaped=True)
 	print led1State
 	if led1State[0] == 0:
-		xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
+		xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@Hl`')
 		Ambiente1m.objects.all().update(Led1State=1)
 	else:
-		xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@:\x8a\xde')
+		xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@Hl`')
 		Ambiente1m.objects.all().update(Led1State=0)
 		
 	return HttpResponse(content_type = "application/json",status = 200)
