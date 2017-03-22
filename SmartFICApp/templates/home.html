@@ -346,6 +346,35 @@
 				<img id="ledId" class="led" src="{% static "images/ledOff.png" %}"></img>
 			</div>
 			{% endif %}
+			<script>
+			    function ACon(){
+					$.ajax({
+					 type: "GET",
+					 contentType: "application/json; charset=utf-8",
+					 url: "/ACon",
+					 data: "",
+					 dataType: "json",
+					 async: true,
+					 success: function (data, textStatus) {
+					 },
+					 complete: function (data, textStatus) {
+						$('#acId')[0].src = "../static/images/neutral.png"
+					 },
+					 error: function (data, status, error) {
+					 },
+					 cache: false
+					});
+				}
+			</script>
+		{% if activado == 1 %}
+			<div class="ledContainer" onclick="ACon();" target="_blank">
+				<img id="acId" class="led" src="{% static "images/ac.png" %}"></img>
+			</div>
+		{%else %}
+			<div class="ledContainer" onclick="ACon();" target="_blank">
+				<img id="acId" class="led" src="{% static "images/neutral.png" %}"></img>
+			</div>
+		{% endif %}
          </div>
       </div>
       <div id="container">{{  weatherchart|load_charts:"container" }}</div>

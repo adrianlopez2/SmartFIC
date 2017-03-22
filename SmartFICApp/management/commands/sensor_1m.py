@@ -33,6 +33,8 @@ class Command(BaseCommand):
 		led1State = led1State[0]
 		led2State = Ambiente1m.objects.values_list('Led2State',flat=True)
 		led2State = led2State[0]
+		activado = Ambiente1m.objects.values_list('Activado',flat=True)
+		activado = activado[0]
 		Ambiente1m.objects.all().delete()
 		# Create API object
 		xbee = ZigBee(ser,escaped=True)
@@ -77,6 +79,7 @@ class Command(BaseCommand):
 				ambiente.Temperatura2 = tempC2
 				ambiente.Led1State = led1State
 				ambiente.Led2State = led2State
+				ambiente.Activado = activado
 				ambiente.save()
 			except KeyboardInterrupt:
 				break

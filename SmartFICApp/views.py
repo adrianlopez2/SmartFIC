@@ -19,11 +19,13 @@ def home(request):
 	temperatura = Ambiente1m.objects.values_list('Temperatura1',flat=True)
 	humedad = Ambiente1m.objects.values_list('Humedad1',flat=True)
 	led1State = Ambiente1m.objects.values_list('Led1State',flat=True)
+	activado = Ambiente1m.objects.values_list('Activado',flat=True)
 	mediaT = Ambiente.objects.aggregate(Avg('Temperatura'),Avg('Humedad'),Max('Temperatura'),Max('Humedad'),Min('Temperatura'),Min('Humedad'))
  	graf = grafico_ambiente()
 	return render_to_response('home.html', {
 	'humedad': humedad[0],
 	'led1State':led1State[0],
+	'activado': activado[0],
 	'temperatura': temperatura[0],
 	'mediaT': round(mediaT['Temperatura__avg']),
 	'mediaH': round(mediaT['Humedad__avg']),
@@ -150,5 +152,18 @@ def on(request):
 	#ROUTER: '\x00\x13\xa2\x00@:\x8a\xde'
 
 
+def ACon(request):
+	ambiente = Ambiente1m()
+	activado = Ambiente1m.objects.values_list('Activado',flat=True)
+	if activado[0] == 0:
+		Ambiente1m.objects.all().update(Activado=1)
+	else:
+		Ambiente1m.objects.all().update(Activado=0)
+		
+	return HttpResponse(content_type = "application/json",status = 200)
+	
+	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@Hl`')
+	#NODO:   '\x00\x13\xa2\x00@Hl`'  
+	#ROUTER: '\x00\x13\xa2\x00@:\x8a\xde'
 
 
