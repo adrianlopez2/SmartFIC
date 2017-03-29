@@ -2,7 +2,7 @@ from django.core.management import BaseCommand
 import serial
 import datetime
 import time
-from SmartFICApp.models import Ambiente1m
+from SmartFICApp.models import Ambiente1m,Ajustes
 from pytz import timezone, utc
 from django.conf import settings
 from xbee import ZigBee
@@ -33,12 +33,17 @@ class Command(BaseCommand):
 		xbee = ZigBee(ser,escaped=True)
 		humedad = hum[0]
 		temperatura = temp[0]
-		self.stdout.write(str(humedad))
+		temp_min = Ajustes.objects.values_list('Temperatura',flat=True).order_by("-id")[0]
+		hum_min = Ajustes.objects.values_list('Humedad',flat=True).order_by("-id")[0]
 		if activado == 1:
-			if temperatura < 13 and humedad > 60 and led2State == 0:
+			if temperatura < temp_min and humedad > hum_min:
 				xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@Hl`')
 				Ambiente1m.objects.all().update(Led2State=1)
 				self.stdout.write('Encendiendo AC.')
+			else:
+				xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@Hl`')
+				Ambiente1m.objects.all().update(Led2State=0)
+				self.stdout.write('Apagando AC.')
 		else:
 			xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@Hl`')
 			Ambiente1m.objects.all().update(Led2State=0)
@@ -49,4 +54,5 @@ class Command(BaseCommand):
 	#ROUTER: '\x00\x13\xa2\x00@:\x8a\xde'
 
 		self.stdout.write('Humedad: '+str(hum[0]) + ' Temperatura: '+str(temp[0]))
+		self.stdout.write('Humedad_min: '+str(hum_min) + ' Temperatura_min: '+str(temp_min))
 		ser.close()

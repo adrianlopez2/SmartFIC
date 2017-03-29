@@ -294,33 +294,9 @@
    <body>
       <div>
          <div id = "medidores">
-            <div id="containerHum" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto;display:inline-block;" ></div>
-            <div id="containerTemp" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto; display:inline-block;" ></div>
-            {% if led1State == 1 %}
-			<script>
-			    function off(){
-					$.ajax({
-					 type: "GET",
-					 contentType: "application/json; charset=utf-8",
-					 url: "/off",
-					 data: "",
-					 dataType: "json",
-					 async: true,
-					 success: function (data, textStatus) {
-					 },
-					 complete: function (data, textStatus) {
-					   $('#ledId')[0].src = "../static/images/ledOff.png"
-					 },
-					 error: function (data, status, error) {
-					 },
-					 cache: false
-					});
-				}
-			</script>
-			<div class="ledContainer" onclick="off();" target="_blank">
-				<img id="ledId" class="led" src="{% static "images/ledOn.png" %}"></img>
-			</div>
-			{% else %}
+		<div id="containerHum" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto;display:inline-block;" ></div>
+		<div id="containerTemp" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto; display:inline-block;" ></div>
+		<input id= "ledSt" type="hidden" name="acSt" value= "{{ led1State }}">			
 			<script>
 			    function on(){
 					$.ajax({
@@ -334,18 +310,31 @@
 					   
 					 },
 					 complete: function (data, textStatus) {
-					   $('#ledId')[0].src = "../static/images/ledOn.png"
+						if ($('#ledSt')[0].value == 0){
+							$('#ledId')[0].src = "../static/images/ledOn.png";
+							$('#ledSt')[0].value = 1;
+						} else {
+							$('#ledId')[0].src = "../static/images/ledOff.png";
+							$('#ledSt')[0].value = 0;
+						}
 					 },
 					 error: function (data, status, error) {
 					 },
 					 cache: false
 					});
 				}
-			</script>
+			</script>        		
+
+			{% if led1State == 1 %}
+			<div class="ledContainer" onclick="on();" target="_blank">
+				<img id="ledId" class="led" src="{% static "images/ledOn.png" %}"></img>
+			</div>
+			{% else %}
 			<div class="ledContainer" onclick="on();" target="_blank">
 				<img id="ledId" class="led" src="{% static "images/ledOff.png" %}"></img>
 			</div>
 			{% endif %}
+			<input id= "acSt" type="hidden" name="acSt" value= "{{ activado }}">
 			<script>
 			    function ACon(){
 					$.ajax({
@@ -358,7 +347,13 @@
 					 success: function (data, textStatus) {
 					 },
 					 complete: function (data, textStatus) {
-						$('#acId')[0].src = "../static/images/neutral.png"
+						if ($('#acSt')[0].value == 0){
+							$('#acId')[0].src = "../static/images/ac.png";
+							$('#acSt')[0].value = 1;
+						} else {
+							$('#acId')[0].src = "../static/images/neutral.png";
+							$('#acSt')[0].value = 0;
+						}
 					 },
 					 error: function (data, status, error) {
 					 },

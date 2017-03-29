@@ -1,17 +1,21 @@
 # Create your views here.
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 import serial
 import datetime
 import time
 from django.shortcuts import render_to_response
-from SmartFICApp.models import Ambiente,Ambiente2,AmbienteStats,Ambiente1m
+from SmartFICApp.models import Ambiente,Ambiente2,AmbienteStats,Ambiente1m,Ajustes
 from chartit import DataPool, Chart
 from pytz import timezone, utc
 from django.conf import settings
 from django.db.models import Avg,Max,Min
 from datetime import timedelta
 from xbee import ZigBee
+from django.core.management import call_command
+from django.template.context_processors import csrf
+from forms import AjustesForm
+
 
 
 ####
@@ -41,22 +45,22 @@ def presentacion(request):
 ####
 
 def grafico_ambiente():
-		#ts = Ambiente.objects.get()
-#Step 1: Create a DataPool with the data we want to retrieve.
-	weatherdata = DataPool(
-		series=[
-		{'options': 
-		{
-		'source': Ambiente.objects.all()},
-		'terms': [ 'Timestamp','Temperatura','Humedad']
-		}
-		#,
-		#{'options': {
-        #'source': Ambiente2.objects.all()},
-        #'terms': [{'am2_Timestamp': 'Timestamp'},{'am2_Temperatura': 'Temperatura'}]
-		#}
-		]
-	)
+	#Step 1: Create a DataPool with the data we want to retrieve.
+	dias = Ajustes.objects.values_list('Dias',flat=True).order_by("-id")[0]
+	if dias == 0 :
+		weatherdata = DataPool(
+			series=[{'options': {
+				'source': Ambiente.objects.all()},
+				'terms': [ 'Timestamp','Temperatura','Humedad']
+			}]
+		)
+	else:	
+		weatherdata = DataPool(
+			series=[{'options': {
+				'source': Ambiente.objects.filter(Timestamp__range=(datetime.date.today() - timedelta(dias), datetime.date.today() )).all()},
+				'terms': [ 'Timestamp','Temperatura','Humedad']
+			}]
+		)
 #Step 2: Create the Chart object
 	cht = Chart(
 		datasource = weatherdata,
@@ -66,7 +70,12 @@ def grafico_ambiente():
 						'Timestamp':['Temperatura','Humedad']
 						#,'am2_Timestamp':['am2_Temperatura']
 						}}],
-			chart_options ={'title': {'text': 'Ambiente'},'xAxis': {'title': {'text': 'Dia'}}}
+			chart_options ={'title': {'text': 'Ambiente'},'xAxis': {'title': {'text': 'Dia'} ,'minTickInterval': 20, 'type':'datetime'
+
+
+
+
+		       }}
 	)
 #Step 3: Send the chart object to the template.
 	return cht
@@ -88,7 +97,7 @@ def grafico_maxmin():
 #Step 1: Create a DataPool with the data we want to retrieve.
 	weatherdata = DataPool(
 		series=[{'options': {
-		'source': AmbienteStats.objects.all()},
+		'source': AmbienteStats.objects.filter(Zona=1).all()},
 		'terms': [ 'Fecha','TemperaturaMax','TemperaturaMin','TemperaturaMed']
 		}
 		]
@@ -108,7 +117,7 @@ def grafico_maxmin_7dias():
 #Step 1: Create a DataPool with the data we want to retrieve.
 	weatherdata = DataPool(
 		series=[{'options': {
-		'source': AmbienteStats.objects.filter(Fecha__range=(datetime.date.today() - timedelta(7), datetime.date.today() )).all()},
+		'source': AmbienteStats.objects.filter(Zona=1).filter(Fecha__range=(datetime.date.today() - timedelta(7), datetime.date.today() )).all()},
 		'terms': [ 'Fecha','TemperaturaMax','TemperaturaMin','TemperaturaMed']
 		}
 		]
@@ -153,12 +162,12 @@ def on(request):
 
 
 def ACon(request):
-	ambiente = Ambiente1m()
 	activado = Ambiente1m.objects.values_list('Activado',flat=True)
 	if activado[0] == 0:
 		Ambiente1m.objects.all().update(Activado=1)
 	else:
 		Ambiente1m.objects.all().update(Activado=0)
+	call_command('ledAmbiente')
 		
 	return HttpResponse(content_type = "application/json",status = 200)
 	
@@ -166,4 +175,23 @@ def ACon(request):
 	#NODO:   '\x00\x13\xa2\x00@Hl`'  
 	#ROUTER: '\x00\x13\xa2\x00@:\x8a\xde'
 
+def ajustes(request):
+	temp = Ajustes.objects.values_list('Temperatura',flat=True).order_by("-id")[0]
+	hum = Ajustes.objects.values_list('Humedad',flat=True).order_by("-id")[0]
+	dias = Ajustes.objects.values_list('Dias',flat=True).order_by("-id")[0]
+	if request.POST:
+		form = AjustesForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/home')
+	else:
+		form = AjustesForm()
+
+	args = {}
+	args.update(csrf(request))
+	args['temp'] = temp
+	args['hum'] = hum
+	args['dias'] = dias
+	args['form'] = form
+	return render_to_response('ajustes.html', args)
 

@@ -22,7 +22,7 @@ class Command(BaseCommand):
 		maxT = Ambiente.objects.aggregate(Max('Temperatura'),Min('Temperatura'), Avg('Temperatura'))
 		maxT2 = Ambiente2.objects.aggregate(Max('Temperatura'),Min('Temperatura'), Avg('Temperatura'))
 		ambiente = AmbienteStats()
-		ambiente.Fecha =datetime.date.today() #- timedelta(1)
+		ambiente.Fecha =datetime.date.today() - timedelta(1)
 		ambiente.Zona = '1'
                 ambiente.TemperaturaMax = maxT['Temperatura__max']
                 ambiente.TemperaturaMin = maxT['Temperatura__min']

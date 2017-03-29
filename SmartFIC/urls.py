@@ -26,4 +26,5 @@ urlpatterns = [
 	url(r'^on/$', on),
 	url(r'^off/$', on),
 	url(r'^ACon/$', ACon),
+	url(r'^ajustes/$', ajustes),
 ]
