@@ -19,8 +19,8 @@ class Command(BaseCommand):
 # A command must define handle()
 	def handle(self, *args, **options):	
 #filter(Timestamp__range=(datetime.date.today() - timedelta(1), datetime.date.today() )).
-		maxT = Ambiente.objects.aggregate(Max('Temperatura'),Min('Temperatura'), Avg('Temperatura'))
-		maxT2 = Ambiente2.objects.aggregate(Max('Temperatura'),Min('Temperatura'), Avg('Temperatura'))
+		maxT = Ambiente.objects.filter(Timestamp__range=(datetime.date.today() - timedelta(1), datetime.date.today() )).aggregate(Max('Temperatura'),Min('Temperatura'), Avg('Temperatura'))
+		maxT2 = Ambiente2.objects.filter(Timestamp__range=(datetime.date.today() - timedelta(1), datetime.date.today() )).aggregate(Max('Temperatura'),Min('Temperatura'), Avg('Temperatura'))
 		ambiente = AmbienteStats()
 		ambiente.Fecha =datetime.date.today() - timedelta(1)
 		ambiente.Zona = '1'

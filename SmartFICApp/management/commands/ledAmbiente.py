@@ -43,11 +43,11 @@ class Command(BaseCommand):
 			else:
 				xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@Hl`')
 				Ambiente1m.objects.all().update(Led2State=0)
-				self.stdout.write('Apagando AC.')
+				self.stdout.write('Apagando AC Activado = 1.')
 		else:
 			xbee.tx(dest_addr='\x00\x01', data='L',dest_addr_long='\x00\x13\xa2\x00@Hl`')
 			Ambiente1m.objects.all().update(Led2State=0)
-			self.stdout.write('Apagando AC.')
+			self.stdout.write('Apagando AC Activado = 0.')
 
 	#xbee.tx(dest_addr='\x00\x01', data='H',dest_addr_long='\x00\x13\xa2\x00@Hl`')
 	#NODO:   '\x00\x13\xa2\x00@Hl`'  
