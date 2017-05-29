@@ -43,7 +43,7 @@ header{
 .footer {
   position: fixed;
   width: 100vw;
-  height: 7vh;
+  height: 9vh;
   bottom: 0;
   left: 0;
   background-color: #3C3C3C;
@@ -54,36 +54,11 @@ header{
 #container{
   width: 50vw;
   height: 40vh;
-  margin-top:5vh;
+  margin-top: 10vh;
 }
 #container7dias{
   width: 50vw;
   height: 40vh;
-}
-
-.led{
-    border-radius: 50%;
-    max-width: 14vw;
-    max-height:29vh;
-    vertical-align: baseline;
-}
-
-.ledContainer { 
-    position: relative; 
-    display: inline-block;
-    width: 14vw;
-    height: 29vh;
-    cursor: pointer;
-}
-
-.humContainer { 
-    position: relative; 
-    height: 25vh;
-    display: inline-block;
-    width:23%;
-    background-image: url(./images/gota.png);
-    background-repeat: no-repeat;
-    background-position: center center;
 }
 
 h2 { 
@@ -94,19 +69,6 @@ h2 {
    font-size: 24px;
    width: 99%; 
 }
-
-.tempContainer { 
-   position: relative; 
-    height: 25vh;
-    display: inline-block;
-    width: 32vh;
-   background-image: url(./images/termo.png);
-   background-repeat: no-repeat;
-   background-size: 10vh 10vw;
-   background-position: center center;
-   background-size: 25vh;
-}
-
 
 h3 { 
    position: absolute; 

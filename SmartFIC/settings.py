@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'SmartFICApp',
     'highcharts', # for chartit app
     'jquery', # for chartit app
-    'chartit',
+    'chartit',# Necesario para usar Highcharts en Django
+    'django_extensions',#Representacion del modelo de datos
 ]
 
 MIDDLEWARE_CLASSES = [
