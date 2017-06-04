@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles', #Permite habilitar directorios estaticos
     'SmartFICApp',
     'highcharts', # for chartit app
     'jquery', # for chartit app
@@ -80,6 +80,7 @@ WSGI_APPLICATION = 'SmartFIC.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+#Configuracion necesaria para integrar PostgreSQL a Django
 
 DATABASES = {
     'default': {
@@ -133,6 +134,7 @@ DATETIME_INPUT_FORMATS = ('%d/%m/%Y %H:%M:%S',)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+#Directorios estaticos accesibles
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ("/home/pi/SmartFIC/SmartFICApp/static",)
