@@ -3,9 +3,10 @@ body {
 	background-color: #908E8E;
 	background: linear-gradient(#908E8E, #B5B5B5);
 	margin: 0px;
+	padding: 0;
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 100vh;
+	height: 100%;
 }
 
 header{
@@ -29,6 +30,9 @@ header{
 .clock{
   width: 500px;
   margin-left: auto;
+  zoom: 0.3;
+  -moz-transform-origin: 0 0;
+  -moz-transform: scale(.25);
 }
 
 #text {
@@ -48,13 +52,22 @@ header{
   left: 0;
   background-color: #3C3C3C;
   text-align: center;
-  color: #FFFFFF
+  color: #FFFFFF;
+
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+	margin-right: 40px;
 }
 
 #container{
   width: 50vw;
   height: 40vh;
   margin-top:5vh;
+      margin-bottom: 80px;
 }
 #container7dias{
   width: 50vw;
@@ -167,4 +180,15 @@ ul, ol {
 .nav li ul li ul {
 	right:-140px;
 	top:0px;
+}
+
+@media (max-width: 920px) {
+		#medidores {
+			display: flex;
+			flex-direction: column;		
+	}
+
+.footer {
+	flex-direction: column;
+}
 }

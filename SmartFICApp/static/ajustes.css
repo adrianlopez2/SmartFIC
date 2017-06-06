@@ -1,12 +1,4 @@
 {% load static %}
-body {
-	background-color: #908E8E;
-	background: linear-gradient(#908E8E, #B5B5B5);
-	margin: 0px;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100vh;
-}
 
 header{
   background: #3C3C3C;
@@ -26,9 +18,29 @@ header{
     line-height: 5vh;
 }
 
-.clock{
-  width: 500px;
-  margin-left: auto;
+.formulario {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.inputs label, .inputs input{
+	display: inline-block;
+}
+
+.inputs input {
+	margin-right: 20px;
+	margin-left: 10px;
+}
+
+@media (max-width: 920px) {
+	.formulario {
+		flex-direction: column;
+	}
+	
+	.inputs {
+		margin-bottom: 15px;
+	}
 }
 
 #text {
@@ -38,18 +50,6 @@ header{
   transform: translate(-50%, -50%);
   color: #fff;
   width: 100%;
-}
-
-.footer {
-  position: fixed;
-  width: 100vw;
-  height: 9vh;
-  min-height: 80px;
-  bottom: 0;
-  left: 0;
-  background-color: #3C3C3C;
-  text-align: center;
-  color: #FFFFFF
 }
 
 #container{

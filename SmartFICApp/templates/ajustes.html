@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% load staticfiles %}
 {% block title %}{% endblock %}
 {% block content %}
@@ -17,28 +18,28 @@
 	{% load chartit %}
 
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />
-	<script type="text/javascript">
-		var clock;	
-		$(document).ready(function() {
-			clock = $('.clock').FlipClock({
-				clockFace: 'TwentyFourHourClock'
-			});
-		});
-	</script>
+	<link rel="stylesheet" type="text/css" href="{% static 'ajustes.css' %}" />
+	<!--<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />-->
+
 </head>
 <body>
 
 
-<form action="/ajustes/" method="post">{% csrf_token %}
+<form class="formulario" action="/ajustes/" method="post">{% csrf_token %}
 
+<div class="inputs">
+<label for="id_Temperatura">Temperatura:</label><input value = "{{temp}}" id="id_Temperatura" name="Temperatura" step="0.5" type="number" />
+</div>
 
-<tr><th><label for="id_Temperatura">Temperatura:</label></th><td><input value = "{{temp}}" id="id_Temperatura" name="Temperatura" step="0.5" type="number" /></td></tr>
-<tr><th><label for="id_Humedad">Humedad:</label></th><td><input value = "{{hum}}"id="id_Humedad" name="Humedad" step="0.5" type="number" /></td></tr>
-<tr><th><label for="id_Dias">Dias:</label></th><td><input value = "{{dias}}"id="id_Dias" name="Dias" step="1" type="number" /></td></tr>
+<div class="inputs">
+<label for="id_Humedad">Humedad:</label><input value = "{{hum}}"id="id_Humedad" name="Humedad" step="0.5" type="number" />
+</div>
 
+<div class="inputs">
+<label for="id_Dias">Dias:</label><input value = "{{dias}}"id="id_Dias" name="Dias" step="1" type="number" />
+</div>
 
-<input type="submit" name="submit" value="Guardar">
+<input type="submit" class="btn btn-primary" name="submit" value="Guardar">
 </form>
 
 </body>

@@ -7,7 +7,7 @@
 		<link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
 		<link href="{% static "flipclock/flipclock.css" %}" rel="stylesheet">
 		<link rel="icon" type="image/png" href="../static/images/favicon.png" />
-
+		
 
 	</head>
 	<body>
@@ -38,16 +38,14 @@
 						</li>
 						</li>
 					</ul>
-					<div class="clock" style="zoom: 0.3;"></div>
 				</div>
 			</div>
 		</nav>
 		<header></header>
 		<center>
-			<h1>{% block head %}{% endblock %}</h1>
+			<h1></h1>
 			{% block content %}{% endblock %}
 		</center>
-	</body>
 	<footer class="footer">
 		<p>
 			TFG: Rede sensorial sen fíos
@@ -56,4 +54,6 @@
 			Contacto: adrianlopez00@gmail.com
 		</p>
 	</footer>
+	</body>
+	
 </html>

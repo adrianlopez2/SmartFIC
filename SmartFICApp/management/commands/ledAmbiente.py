@@ -1,5 +1,12 @@
-from django.core.management import BaseCommand import serial import datetime import time from SmartFICApp.models import Ambiente1m,Ajustes from pytz import timezone, utc from django.conf import settings from xbee 
-import ZigBee import struct
+from django.core.management import BaseCommand 
+import serial 
+import datetime 
+import time 
+from SmartFICApp.models import Ambiente1m,Ajustes 
+from pytz import timezone, utc 
+from django.conf import settings 
+from xbee import ZigBee 
+import struct
 
 #Variable donde se encuentra el nodo COORDINADOR 
 PORT = '/dev/ttyUSB0'
